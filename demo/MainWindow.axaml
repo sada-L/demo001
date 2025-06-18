@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		x:Class="demo.MainWindow"
+		Title="Главное окно"
+		x:CompileBindings="False">
+	<Grid RowDefinitions="*, Auto">
+		<ListBox Grid.Row="0" Name="PartnerListBox">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border DoubleTapped="InputElement_OnDoubleTapped" Background="Transparent">
+						<Grid ColumnDefinitions="*, Auto" Margin="10">
+							<StackPanel Grid.Column="0" Spacing="10">
+								<TextBlock>
+									<TextBlock.Text>
+										<MultiBinding StringFormat="{}{0} | {1}">
+											<Binding Path="PartnerType.Name"/>
+											<Binding Path="Name"/>
+										</MultiBinding>
+									</TextBlock.Text>
+								</TextBlock>
+								<TextBlock Text="{Binding DirName}" />
+								<TextBlock Text="{Binding Phone}" />
+								<TextBlock Text="{Binding Rate, StringFormat='{}Рейтинг: {0}'}" />
+							</StackPanel>
+							<TextBlock Grid.Column="1" Text="{Binding Discount, StringFormat='{}{0}%'}" />
+							<TextBlock Grid.Column="1" Text="{Binding Sum}" VerticalAlignment="Bottom"/>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<Button Grid.Row="1" Content="История" Click="Button_OnClick_History" Margin="10" />
+		<Button Grid.Row="1" Content="Добавить" Click="Button_OnClick_Add" Margin="10" HorizontalAlignment="Right" />
+	</Grid>
+</Window>

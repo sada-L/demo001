@@ -1,0 +1,31 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="demo.App"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+        <FluentTheme />
+		
+		<Style Selector="Window">
+			<Setter Property="Width" Value="600"/>
+			<Setter Property="MinWidth" Value="600"/>
+			<Setter Property="MaxWidth" Value="1920"/>
+			<Setter Property="Height" Value="600"/>
+			<Setter Property="MinHeight" Value="600"/>
+			<Setter Property="MaxHeight" Value="1080"/>
+			<Setter Property="WindowStartupLocation" Value="CenterScreen"/>
+			<Setter Property="Icon" Value="avares://demo/icon.ico"/>
+			<Setter Property="FontFamily" Value="Segoe UI"/>
+		</Style>
+		
+		<Style Selector="ListBox">
+			<Setter Property="Background" Value="#F4E8D3"/>
+		</Style>
+		
+		<Style Selector="Button">
+			<Setter Property="Background" Value="#67BA80"/>
+		</Style>
+		
+    </Application.Styles>
+</Application>

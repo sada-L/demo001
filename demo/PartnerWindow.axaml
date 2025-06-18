@@ -1,0 +1,26 @@
+<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		x:Class="demo.PartnerWindow"
+		Title="Окно партнера"
+		x:CompileBindings="False">
+	<Grid RowDefinitions="*, Auto" Name="PartnerPanel">
+		<StackPanel Grid.Row="0" Spacing="10" Margin="10">
+			<TextBox Watermark="Имя" Text="{Binding Name}"/>
+			<TextBox Watermark="Райтинг" Text="{Binding Rate}"/>
+			<ComboBox Name="TypeBox">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding Name}"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+		</StackPanel>
+		
+		<Button Grid.Row="1" Content="Сохранить" Click="Button_OnClick_Save" Margin="10" HorizontalAlignment="Right"/>
+		<Button Grid.Row="1" Content="Назад" Click="Button_OnClick_Back" Margin="10" />
+		<TextBlock Grid.Row="0" Name="Error" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red"/>
+	</Grid>
+</Window>
